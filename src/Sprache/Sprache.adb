@@ -1,0 +1,122 @@
+with Ada.Text_IO; use Ada.Text_IO;
+
+with Zeug;
+
+package body Sprache is
+
+   procedure SpracheFestlegen
+   is begin
+      
+      AuswahlSchleife:
+      loop
+         
+         Put_Line (Item => "Honki Tonks Wuerfeln");
+         Put_Line (Item => "1 = Deutsch.");
+         Put_Line (Item => "2 = English.");
+
+         Get_Immediate (Eingabe);
+
+         case
+           Eingabe
+         is
+            when '1' =>
+               DeutschEnglisch := True;
+               exit AuswahlSchleife;
+
+            when '2' =>
+               DeutschEnglisch := False;
+               exit AuswahlSchleife;
+
+            when others =>
+               Put_Line (Item => "Keine erlaubte Eingabe.");
+               Put_Line (Item => "Invalid input.");
+               Zeug.NeueZeilen;
+         end case;
+         
+      end loop AuswahlSchleife;
+      
+      Zeug.NeueZeilen;
+      
+   end SpracheFestlegen;
+   
+   
+   
+   procedure Wuerfeln
+   is begin
+      
+      case
+        DeutschEnglisch
+      is
+         when True =>
+            Put_Line (Item => "Honki Tonks Wuerfeln");
+            Put_Line (Item => "1 = Standardwuerfel.");
+            Put_Line (Item => "2 = Nutzerdefinierter Wuerfel.");
+            Put_Line (Item => "3 = Systemauswahl.");
+            Put_Line (Item => "0 = Beenden.");
+            
+         when False =>
+            Put_Line (Item => "Honki Tonks Wuerfeln");
+            Put_Line (Item => "1 = Standard dice.");
+            Put_Line (Item => "2 = User defined dice.");
+            Put_Line (Item => "3 = System selection.");
+            Put_Line (Item => "0 = Exit.");
+      end case;
+      
+   end Wuerfeln;
+   
+   
+   
+   procedure VTM5ReRoll
+   is begin
+      
+      case
+        DeutschEnglisch
+      is
+         when True =>
+            Put_Line (Item => "1 = Nur Misserfolge neu wuerfeln.");
+            Put_Line (Item => "2 = Nur Zehner neu wuerfeln.");
+            Put_Line (Item => "3 = Zehner und Misserfolge neu wuerfeln.");
+            
+         when False =>
+            Put_Line (Item => "1 = Only re-roll failures.");
+            Put_Line (Item => "2 = Only re-roll tens.");
+            Put_Line (Item => "3 = Re-roll tens and failures.");
+      end case;
+      
+   end VTM5ReRoll;
+   
+   
+   
+   procedure Pathfinder
+   is begin
+      
+      case
+        DeutschEnglisch
+      is
+         when True =>
+            Put_Line (Item => "1 = Attributspunkte (Standard).");
+            Put_Line (Item => "2 = Attributspunkte (Klassisch).");
+            Put_Line (Item => "3 = Attributspunkte (Heldenhaft).");
+            Put_Line (Item => "4 = Attributspunkte (Würfelvorrat).");
+            
+         when False =>
+            Put_Line (Item => "1 = Ability Scores (Standard).");
+            Put_Line (Item => "2 = Ability Scores (Classic).");
+            Put_Line (Item => "3 = Ability Scores (Heroic).");
+            Put_Line (Item => "4 = Ability Scores (Dice Pool).");
+      end case;
+      
+   end Pathfinder;
+   
+   
+   
+   function Text
+     (TextnummerExtern : in Positive)
+     return String
+   is begin
+      
+      return To_String (Source => Textliste (TextnummerExtern, DeutschEnglisch));
+      
+   end Text;
+
+end Sprache;
