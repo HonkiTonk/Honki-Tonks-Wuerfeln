@@ -1,4 +1,5 @@
 package AnzahlFestlegen is
+   pragma Elaborate_Body;
    
    function Würfelanzahl
      return Natural;
