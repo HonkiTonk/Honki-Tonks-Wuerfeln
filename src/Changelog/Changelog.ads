@@ -1,9 +1,9 @@
-package ChangelogSeptember20 is
+package Changelog is
    pragma Pure;
    
    -- Version 0.01.1000 => 0.0. (..202):
    
-   --
+   -- 
    
    
 
@@ -18,4 +18,4 @@ package ChangelogSeptember20 is
    
    -- Erste Veröffentlichung.
 
-end ChangelogSeptember20;
+end Changelog;
