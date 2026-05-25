@@ -203,5 +203,7 @@ private
                                            
                                            -- others => (others => To_Unbounded_String (Source => "Leer"))
                                           );
+   
+   procedure Programmname;
 
 end Sprache;
