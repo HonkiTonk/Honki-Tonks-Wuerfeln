@@ -1,8 +1,7 @@
-# Honki Tonks Würfeln
+# Honki Tonks Würfeln V0.01.1000
 Würfelprogramm für verschiedene P&amp;P Systeme.
 
 Dice rolling program for various pen and paper systems.
-
 
 Vorhandene Systeme/Available systems:
 
